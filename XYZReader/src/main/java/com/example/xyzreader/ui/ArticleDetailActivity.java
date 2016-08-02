@@ -20,6 +20,7 @@ import com.example.xyzreader.data.ItemsContract;
 public class ArticleDetailActivity extends AppCompatActivity
         implements LoaderManager.LoaderCallbacks<Cursor> {
 
+    public final static String ARTICLE_ID = "ARTICLE_ID";
     private Cursor mCursor;
     private long mStartId;
 
@@ -57,7 +58,16 @@ public class ArticleDetailActivity extends AppCompatActivity
             if (getIntent() != null && getIntent().getData() != null) {
                 mStartId = ItemsContract.Items.getItemId(getIntent().getData());
             }
+        } else{
+            mStartId = savedInstanceState.getLong(ARTICLE_ID);
         }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        //Save the current article ID
+        outState.putLong(ARTICLE_ID, mStartId);
     }
 
     @Override
@@ -67,22 +77,21 @@ public class ArticleDetailActivity extends AppCompatActivity
 
     @Override
     public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
-        mCursor = cursor;
-        mPagerAdapter.notifyDataSetChanged();
 
         // Select the start ID
         if (mStartId > 0) {
-            mCursor.moveToFirst();
-            // TODO: optimize
-            while (!mCursor.isAfterLast()) {
-                if (mCursor.getLong(ArticleLoader.Query._ID) == mStartId) {
-                    final int position = mCursor.getPosition();
+            cursor.moveToFirst();
+            while (!cursor.isAfterLast()) {
+                if (cursor.getLong(ArticleLoader.Query._ID) == mStartId) {
+                    final int position = cursor.getPosition();
+                    //Only update mCursor if it is found
+                    mCursor = cursor;
+                    mPagerAdapter.notifyDataSetChanged();
                     mPager.setCurrentItem(position, false);
                     break;
                 }
-                mCursor.moveToNext();
+                cursor.moveToNext();
             }
-            mStartId = 0;
         }
     }
 

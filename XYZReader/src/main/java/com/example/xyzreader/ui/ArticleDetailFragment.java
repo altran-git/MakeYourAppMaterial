@@ -10,6 +10,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.ShareCompat;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
@@ -37,16 +38,19 @@ public class ArticleDetailFragment extends Fragment implements
     private static final String TAG = "ArticleDetailFragment";
 
     public static final String ARG_ITEM_ID = "item_id";
+    public static final String SCROLL_POSITION = "scroll_position";
 
     private Cursor mCursor;
     private long mItemId;
     private View mRootView;
 
     private ImageView mPhotoView;
+    private NestedScrollView mNestedScrollView;
     private CollapsingToolbarLayout mCollapsingToolbarLayout;
     private Toolbar mToolbar;
     private int mMutedColor = 0xFF333333;
     private boolean mIsCard = false;
+    private int scrollPos;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -93,6 +97,13 @@ public class ArticleDetailFragment extends Fragment implements
 
         mPhotoView = (ImageView) mRootView.findViewById(R.id.photo);
         mToolbar = (Toolbar) mRootView.findViewById(R.id.detail_toolbar);
+
+        mNestedScrollView = (NestedScrollView) mRootView.findViewById(R.id.scrollView);
+
+        if(savedInstanceState != null){
+            scrollPos = savedInstanceState.getInt(SCROLL_POSITION);
+            mNestedScrollView.setVerticalScrollbarPosition(scrollPos);
+        }
 
         ((AppCompatActivity)getActivity()).setSupportActionBar(mToolbar);
         ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -164,6 +175,13 @@ public class ArticleDetailFragment extends Fragment implements
             bylineView.setText("N/A" );
             bodyView.setText("N/A");
         }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        scrollPos = mNestedScrollView.getVerticalScrollbarPosition();
+        outState.putInt(SCROLL_POSITION, scrollPos);
     }
 
     @Override
