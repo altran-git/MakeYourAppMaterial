@@ -12,8 +12,10 @@
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsingToolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll">
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -36,7 +38,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
                     android:padding="16dp"
-                    android:background="@android:color/transparent"
                     android:orientation="vertical">
 
                     <TextView
@@ -47,6 +48,7 @@
 
                     <TextView
                         android:id="@+id/article_byline"
+                        style="?android:attr/textAppearanceSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 </LinearLayout>
@@ -57,20 +59,23 @@
                 android:id="@+id/detail_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:popupTheme="@style/AppTheme.PopupOverlay" />
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                app:layout_collapseMode="pin"/>
+
         </android.support.design.widget.CollapsingToolbarLayout>
 
 
     </android.support.design.widget.AppBarLayout>
 
-    <FrameLayout
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/article_body"
@@ -86,9 +91,9 @@
                 android:autoLink="web"
                 android:linksClickable="true"
                 android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier" />
+        </LinearLayout>
 
-        </ScrollView>
-    </FrameLayout>
+    </android.support.v4.widget.NestedScrollView>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/share_fab"
