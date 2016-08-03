@@ -44,13 +44,15 @@
                         android:id="@+id/article_title"
                         style="?android:attr/textAppearanceLarge"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/metabarText"/>
 
                     <TextView
                         android:id="@+id/article_byline"
                         style="?android:attr/textAppearanceSmall"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/metabarText"/>
                 </LinearLayout>
 
             </FrameLayout>

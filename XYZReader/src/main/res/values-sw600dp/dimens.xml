@@ -1,5 +1,22 @@
 <resources>
+    <!-- list -->
+    <dimen name="list_toolbar_margin">16dp</dimen>
+    <dimen name="list_vertical_margin">16dp</dimen>
+    <dimen name="list_horizontal_margin">16dp</dimen>
+    <dimen name="card_vertical_margin">12dp</dimen>
+    <dimen name="card_horizontal_margin">12dp</dimen>
+    <dimen name="card_text_padding">12dp</dimen>
+    <dimen name="card_titletext_size">20sp</dimen>
+    <dimen name="card_subtext_size">16sp</dimen>
+    <integer name="list_column_count">3</integer>
+
+
     <!-- detail -->
+    <dimen name="detail_scroll_top_margin">-160dp</dimen>
+    <dimen name="detail_card_width">550dp</dimen>
+
     <item name="detail_body_line_spacing_multiplier" format="float" type="fraction">1.3</item>
     <dimen name="fab_margin">24dp</dimen>
+
+    <bool name="detail_is_card">true</bool>
 </resources>

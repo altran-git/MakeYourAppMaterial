@@ -26,6 +26,7 @@
         <TextView
             android:id="@+id/article_title"
             style="@style/TextAppearance.AppCompat.Subhead"
+            android:textSize="@dimen/card_titletext_size"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="@dimen/card_text_padding"

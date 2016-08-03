@@ -132,6 +132,7 @@ public class ArticleDetailFragment extends Fragment implements
         TextView titleView = (TextView) mRootView.findViewById(R.id.article_title);
         TextView bylineView = (TextView) mRootView.findViewById(R.id.article_byline);
         TextView bodyView = (TextView) mRootView.findViewById(R.id.article_body);
+        final View metaView = mRootView.findViewById(R.id.meta_bar);
         mCollapsingToolbarLayout = (CollapsingToolbarLayout) mRootView.findViewById(R.id.collapsingToolbar);
         bodyView.setTypeface(Typeface.createFromAsset(getResources().getAssets(), "Rosario-Regular.ttf"));
 
@@ -156,10 +157,13 @@ public class ArticleDetailFragment extends Fragment implements
                             Bitmap bitmap = imageContainer.getBitmap();
                             if (bitmap != null) {
                                 Palette p = Palette.generate(bitmap, 12);
-                                mMutedColor = p.getLightMutedColor(0xFF333333);
+                                mMutedColor = p.getDarkMutedColor(0xFF333333);
                                 mPhotoView.setImageBitmap(imageContainer.getBitmap());
                                 if (mCollapsingToolbarLayout != null) {
                                     mCollapsingToolbarLayout.setContentScrimColor(mMutedColor);
+                                }
+                                if(mIsCard){
+                                    metaView.setBackgroundColor(mMutedColor);
                                 }
                             }
                         }
