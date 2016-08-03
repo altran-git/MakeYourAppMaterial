@@ -8,7 +8,7 @@
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="320dp"
+        android:layout_height="@dimen/detail_appbar_height"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.design.widget.CollapsingToolbarLayout
@@ -37,7 +37,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
-                    android:padding="16dp"
+                    android:padding="@dimen/detail_horizontal_padding"
                     android:orientation="vertical">
 
                     <TextView
@@ -71,6 +71,7 @@
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="@dimen/detail_horizontal_margin"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
@@ -81,14 +82,11 @@
             <TextView
                 android:id="@+id/article_body"
                 style="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColorLink="@android:color/black"
-                android:layout_marginBottom="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="16dp"
-                android:paddingTop="16dp"
+                android:textColorLink="@color/colorAccent"
+                android:paddingTop="@dimen/detail_body_top_padding"
                 android:autoLink="web"
                 android:linksClickable="true"
                 android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier" />
@@ -98,13 +96,15 @@
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/share_fab"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
         android:src="@drawable/ic_share"
-        android:layout_margin="16dp"
-        android:elevation="@dimen/fab_elevation"
+        android:contentDescription="@string/action_share"
+        app:fabSize="normal"
+        app:elevation="@dimen/fab_elevation"
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|end"
-        android:contentDescription="@string/action_share" />
+        app:pressedTranslationZ="@dimen/fab_press_translation_z"/>
 
 </android.support.design.widget.CoordinatorLayout>
