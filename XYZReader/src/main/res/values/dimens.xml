@@ -12,10 +12,7 @@
 
     <!-- detail -->
     <dimen name="detail_appbar_height">320dp</dimen>
-    <dimen name="detail_vertical_padding">16dp</dimen>
-    <dimen name="detail_horizontal_padding">16dp</dimen>
-    <dimen name="detail_vertical_margin">16dp</dimen>
-    <dimen name="detail_horizontal_margin">16dp</dimen>
+    <dimen name="detail_padding">16dp</dimen>
     <dimen name="detail_body_top_padding">16dp</dimen>
 
     <bool name="detail_is_card">false</bool>

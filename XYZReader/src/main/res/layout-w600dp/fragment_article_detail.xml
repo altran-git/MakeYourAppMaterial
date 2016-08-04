@@ -59,7 +59,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom"
-                        android:padding="@dimen/detail_horizontal_padding"
+                        android:padding="@dimen/detail_padding"
                         android:orientation="vertical">
 
                         <TextView
@@ -84,7 +84,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColorLink="@color/colorAccent"
-                        android:padding="@dimen/detail_horizontal_padding"
+                        android:padding="@dimen/detail_padding"
                         android:autoLink="web"
                         android:linksClickable="true"
                         android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier" />
