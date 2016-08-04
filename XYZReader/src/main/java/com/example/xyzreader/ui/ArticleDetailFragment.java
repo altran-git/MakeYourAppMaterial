@@ -87,8 +87,8 @@ public class ArticleDetailFragment extends Fragment implements
             case android.R.id.home:
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     getActivity().finishAfterTransition();
+                    return true;
                 }
-                return true;
         }
         return super.onOptionsItemSelected(item);
     }
