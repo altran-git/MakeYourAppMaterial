@@ -1,8 +1,7 @@
 <resources>
     <!-- list -->
     <dimen name="list_toolbar_margin">16dp</dimen>
-    <dimen name="list_vertical_margin">16dp</dimen>
-    <dimen name="list_horizontal_margin">16dp</dimen>
+    <dimen name="list_padding">16dp</dimen>
     <dimen name="card_vertical_margin">12dp</dimen>
     <dimen name="card_horizontal_margin">12dp</dimen>
     <dimen name="card_text_padding">12dp</dimen>
