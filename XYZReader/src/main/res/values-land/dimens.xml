@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="detail_scroll_top_margin">-50dp</dimen>
+    <dimen name="detail_scroll_top_margin">-160dp</dimen>
     <dimen name="detail_card_width">450dp</dimen>
 
     <bool name="detail_is_card">true</bool>

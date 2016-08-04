@@ -2,5 +2,6 @@
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:windowEnterTransition">@transition/activity_slide</item>
     </style>
 </resources>
